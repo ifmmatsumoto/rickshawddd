@@ -1,0 +1,28 @@
+@startuml
+
+title business_context
+actor 車夫
+actor 旅行顧客
+actor 営業顧客
+actor 既存顧客
+actor マネージャー
+actor 旅行会社
+
+(予約)
+(売上)
+
+(予約) -- (売上)
+
+旅行顧客 -> 旅行会社 : 依頼
+
+旅行会社 -down-> (予約) : 予約
+既存顧客 -down-> (予約) : 指名
+
+マネージャー -down-> 車夫 : 手配
+車夫 -up-> 営業顧客 : 営業
+
+
+マネージャー -right-> (予約) :確認
+車夫 -right-> (売上) : 営業分計上
+
+@enduml
